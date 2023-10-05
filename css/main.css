@@ -1,7 +1,7 @@
 body{
-    background-image: url('../img/fondo.png');
-    background-size: cover;
-    background-position: center center;
+    background-image: url(../img/fondo.png);
+    height: 100%;
+    background-repeat: no-repeat;
 }
 
 .logo{
@@ -17,6 +17,11 @@ body{
 
 .navbar-color{
     background-color: black;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 .nav-link{
@@ -139,4 +144,16 @@ body{
 
 .clear{
     clear: both;
+}
+
+.margin-top-cards{
+    margin-top: 35px;
+}
+
+.margin-top-mobile-cards{
+    margin-top: 65px;
+}
+
+.alert-dismissible{
+    margin-top: 50px;
 }

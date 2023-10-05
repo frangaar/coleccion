@@ -50,7 +50,7 @@
     ?>
 
     <div class="container-fluid mt-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5 g-4 margin-top-cards">
         <?php
         foreach ($cardsList as $card) {
 
@@ -98,8 +98,8 @@
                             <tbody>
                                 <?php foreach ($selectMana as $value) {?>
                                     <tr>    
-                                        <td><span class="badge text-bg-success mb-2 <?php echo $value['nombre'] ?>"><?php echo $value['nombre'] ?></span></td>
-                                        <td><span class="badge text-bg-success mb-2 <?php echo $value['nombre'] ?>"><?php echo $value['cantidadMana'] ?></span></td>
+                                        <td><span class="badge text-bg-success mb-2 <?php echo strtolower($value['nombre']) ?>"><?php echo $value['nombre'] ?></span></td>
+                                        <td><span class="badge text-bg-success mb-2 <?php echo strtolower($value['nombre']) ?>"><?php echo $value['cantidadMana'] ?></span></td>
                                     </tr>
                                 <?php    
                                     }

@@ -31,7 +31,7 @@
 <?php include_once('menu.php'); ?>
 <?php include_once('db.php') ?>
 <div class="container mt-3">
-    <div class="card">
+    <div class="card margin-top-mobile-cards">
         <div class="card-body">
             <h5 class="card-title">Formulario de modificación de la carta</h5>
             <form action="controller.php" method="post" enctype="multipart/form-data">
@@ -43,7 +43,7 @@
             </div>
             <div class="mb-3 float-left">
                     <label for="formFile" class="form-label">Imagen</label>
-                    <input class="form-control" type="file" id="formFile" name="imgCarta">
+                    <input class="form-control" type="file" id="formFile" name="imgCarta" required>
                 </div>
                 <div class="mb-3">
                     <img  class="img-thumbnail" id="img-preview">
