@@ -1,0 +1,5 @@
+cartas(id,nombre,descripcion,idExpansion,ataque,defensa,idTipoCarta,imagen)
+expansiones(id,nombreExpansion)
+tipo_mana(id,nombre)
+tipo_carta(id,nombre)
+cartas_tipomana(idCarta,idTipoMana,cantidadMana)

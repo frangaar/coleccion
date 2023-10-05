@@ -1,0 +1,142 @@
+body{
+    background-image: url('../img/fondo.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.logo{
+    background-image: url("../img/logo.jpg");
+    width: 124px;
+    height: 49px;
+}
+
+.navbar-padding{
+    padding-top: 0px;
+    padding-bottom: 0px !important;
+}
+
+.navbar-color{
+    background-color: black;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.navbar-toggler-custom{
+    background-color: white !important;
+}
+
+.btn-positions{
+    text-align: right;
+}
+
+.btn-positions button{
+    background-color: white;
+}
+
+.btn-positions button.modificar{
+    border-color: blue;
+}
+
+.btn-positions button.borrar{
+    border-color: red;
+}
+
+.card-footer button{
+    padding: 0;
+}
+
+.card-footer .far{
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.card-body.color-fondo{
+    background-color: #f2eded;
+}
+
+.card-body tr{
+    background-color: #f2eded;
+}
+
+.color-fondo{
+    background-color: black;
+}
+
+.titulo{
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+}
+
+.card-body .descripcion{
+    font-size: 12px;
+}
+
+.badges-title{
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.num-mana{
+    width: 50px;
+    display: inline;
+}
+
+.lbl-tipo-mana{
+    display: block;
+}
+
+.azul{
+    background-color: blue !important;
+}
+.blanco{
+    background-color: white !important;
+    color: black !important;
+}
+.incoloro{
+    background-color: #f2eded !important;
+    color: black !important;
+}
+.negro{
+    background-color:black !important;
+    color: white !important;
+}
+.rojo{
+    background-color:red !important;
+    color: white !important;
+}
+.verde{
+    background-color:green !important;
+    color: white !important;
+}
+
+.btn-cancel{
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.lbl-ataque{
+    display: inline;
+}
+
+.badges-ataque{
+    background-color: gold !important;
+    color: black !important;
+}
+
+.table-mana td:nth-child(2){
+    text-align:right;
+}
+
+.float-left{
+    float: left;
+    margin-right: 10px;
+}
+
+.clear{
+    clear: both;
+}
