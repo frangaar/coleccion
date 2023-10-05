@@ -8,7 +8,7 @@
     <link href="css/main.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
-<script>
+<!-- <script>
 
 	document.addEventListener("DOMContentLoaded", (event) => {
 		let imagen = document.getElementById('formFile'); 
@@ -16,16 +16,16 @@
 		imagen.addEventListener('change', function(e) {
 			if (e.target.files[0]) {
 
-				let thumb = document.getElementById('img-preview'); 
+				let thumb = document.getElementsByClassName('img-thumbnail create')[0]; 
 
-				console.log(imagen.value);
+				thumb.style.display = 'block';
 				const splitedWord = imagen.value.split('\\');
 				thumb.src = 'img/'+splitedWord[2];
 			}
 		});
 });
       
-</script>
+</script> -->
 <body>
 <?php session_start(); ?>
 <?php include_once('menu.php'); ?>
@@ -45,9 +45,9 @@
                     <label for="formFile" class="form-label">Imagen</label>
                     <input class="form-control" type="file" id="formFile" name="imgCarta" required>
                 </div>
-                <div class="mb-3">
-                    <img  class="img-thumbnail" id="img-preview">
-                </div>
+                <!-- <div class="mb-3">
+                    <img  class="img-thumbnail create" id="img-preview">
+                </div> -->
             <div class="mb-3 row clear">
                 <label for="descCarta" class="col-sm-3 col-form-label">Descripción de la carta:</label>
                 <div class="sm-8">
