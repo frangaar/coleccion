@@ -110,7 +110,7 @@
                 
 
                 <div class="mb-3 row">
-                    <label for="descCarta" class="col-sm-3 col-form-label">Expansion:</label>
+                    <label class="col-sm-3 col-form-label">Expansion:</label>
                     <div class="sm-8">
                         <select class="form-select" name="idExpansion" aria-label="select">
                         <option value="0" selected>Escoge una coleccion...</option>
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label for="idTipoCarta" class="col-sm-3 col-form-label">Tipo carta:</label>
+                    <label class="col-sm-3 col-form-label">Tipo carta:</label>
                     <div class="sm-8">
                         <select class="form-select" name="idTipoCarta" aria-label="select" required>
                         <option selected disabled value="">Escoge un tipo de carta...</option>
