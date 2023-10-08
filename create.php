@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -127,7 +126,7 @@
             </div>
             
             <div class="mb-3">
-                <label class="col-sm-12 col-form-label lbl-ataque">P/T:</label>
+                <label class="col-sm-12 col-form-label lbl-ataque">Ataque/Defensa:</label>
                 <div class="form-check form-check-inline">
                     <input class="form-control form-control-sm num-mana" type="text" name="ataque" aria-label="input example"> / 
                     <input class="form-control form-control-sm num-mana" type="text" name="defensa" aria-label="input example">

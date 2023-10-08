@@ -17,6 +17,7 @@ include_once('db.php');
 
 $conn=openDB();
 
+
     if(isset($_POST['guardar'])){
 
         $guardado=crearCarta($conn);

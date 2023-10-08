@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +49,7 @@
     ?>
 
     <div class="container-fluid mt-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5 g-4 margin-top-cards">
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 g-4 margin-top-cards">
         <?php
         foreach ($cardsList as $card) {
 
@@ -79,74 +78,63 @@
             $tipoCarta = $tipoCarta->fetch();
             
         ?>
-            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="col">
-                            <div class="card h-100 color-fondo">
-                                
-                                <img src="img/1.jpg" class="card-img-top">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flip-card-back">
-                        <div class="col">
-                            <div class="card h-100 color-fondo">
-                                
-                                <div class="card-body color-fondo">
-                                    
-                                    <p class="card-text descripcion"><?php echo $card['descripcion'] ?></p>
-                                    <label class="col-sm-6 col-form-label badges-title">Expansión:</label><br>
-                                    <?php if(!empty($selectExpansion)){ ?>
-                                        <span class="badge text-bg-success mb-2"><?php echo $selectExpansion['nombreExpansion'] ?></span>
-                                    <?php } ?> 
-                                    <br> 
-                                    <?php if(!empty($selectMana)){ ?>
-                                    <label class="col-sm-6 col-form-label badges-title">Tipos de maná:</label><br> 
-                                    <table class="table table-sm table-bordered table-mana">
-                                        <tbody>
-                                            <?php foreach ($selectMana as $value) {?>
-                                                <tr>    
-                                                    <td><span class="badge text-bg-success mb-2 <?php echo strtolower($value['nombre']) ?>"><?php echo $value['nombre'] ?></span></td>
-                                                    <td><span class="badge text-bg-success mb-2 <?php echo strtolower($value['nombre']) ?>"><?php echo $value['cantidadMana'] ?></span></td>
-                                                </tr>
-                                            <?php    
-                                                }
-                                            } ?> 
-                                        </tbody>
-                                    </table>
-                                    
-                                    <label class="col-sm-6 col-form-label badges-title">Tipo de carta:</label><br>
-                                    <span class="badge text-bg-success mb-2"><?php echo $tipoCarta['nombre'] ?></span><br>
 
-                                    <?php if($tipoCarta['idTipoCarta'] == 2){ ?>
-                                        <label class="col col-form-label badges-title">Ataque/Defensa:</label><br> 
-                                        <span class="badge text-bg-success badges-ataque"><?php echo $selectExpansion['ataque'] ?> / <?php echo $selectExpansion['defensa'] ?></span>
-                                    <?php } ?>
-                                    
-                                </div>
-                                <div class="card-footer text-end">
-                                    <form method="post" action="controller.php">
-                                        <input type="hidden" name="id" value="<?php echo $card['id'] ?>">
-                                        <div class="btn-positions">
-                                            <button type="submit" class="btn btn-outline-primary" name="modificar">
-                                                <i class="far fa-edit"></i>
-                                            </button>
-                                            <button type="submit" class="btn btn-outline-danger" name="borrar">
-                                                <i class="far fa-trash-alt"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
+        <div class="scene">
+            <div class="card">
+                <div class="card__face card__face--front">
+                    <img src="<?php echo $card['imagen'] ?>" class="card-img-top">
+                </div>
+                <div class="card__face card__face--back">
+                    
+                    <div class="card-body color-fondo">
+                        <?php if(!empty($card['descripcion'])){ ?>
+                            <p class="card-text descripcion"><?php echo $card['descripcion'] ?></p>
+                        <?php } ?> 
+                        <label class="col-12 col-sm-12 col-form-label badges-title">Expansión:</label>
+                        <?php if(!empty($selectExpansion)){ ?>
+                            <span class="badge text-bg-success mb-2 badges-text"><?php echo $selectExpansion['nombreExpansion'] ?></span>
+                        <?php } ?> 
+                         
+                        <?php if(!empty($selectMana)){ ?>
+                        <label class="col-12 col-sm-12 col-form-label badges-title">Tipos de maná:</label><br> 
+                        <table class="table table-bordered table-mana">
+                            <tbody>
+                                <tr>
+                                <?php foreach ($selectMana as $value) {?>
+                                        <!-- <td><span class="badge text-bg-success badges-text <?php echo strtolower($value['nombre']) ?>"><?php echo $value['nombre'] ?></span></td> -->
+                                        <td><span class="badge text-bg-success badges-mana <?php echo strtolower($value['nombre']) ?>"><?php echo $value['cantidadMana'] ?></span></td>
+                                <?php } ?>     
+                                </tr>
+                            </tbody>
+                        </table>
+                        <?php } ?>
+                        <label class="col-12 col-sm-12 col-form-label badges-title">Tipo de carta:</label>
+                        <span class="badge text-bg-success mb-2 badges-text"><?php echo $tipoCarta['nombre'] ?></span>
+
+                        <?php if($tipoCarta['idTipoCarta'] == 2){ ?>
+                            <label class="col-12 col-sm-12 col-form-label badges-title">Ataque/Defensa:</label>
+                            <span class="badge text-bg-success badges-ataque"><?php echo $selectExpansion['ataque'] ?> / <?php echo $selectExpansion['defensa'] ?></span>
+                        <?php } ?>
+                        
+                    </div>
+                    <div class="card-footer text-end border-footer">
+                        <form method="post" action="controller.php">
+                            <input type="hidden" name="id" value="<?php echo $card['id'] ?>">
+                            <div class="btn-positions">
+                                <button type="submit" class="btn btn-outline-primary" name="modificar">
+                                    <i class="far fa-edit fa-text"></i>
+                                </button>
+                                <button type="submit" class="btn btn-outline-danger" name="borrar">
+                                    <i class="far fa-trash-alt fa-text"></i>
+                                </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
             
-
+            
     <?php
         }
     ?>
@@ -156,10 +144,36 @@
 </body>
 </html>
 
-<!-- <script>
+<script>
 
-var card = document.querySelector('.card');
-card.addEventListener( 'click', function() {
-  card.classList.toggle('is-flipped');
+    let cardImageHeight = document.querySelectorAll('.card img')[0].offsetHeight;
+    function setHeight(){
+        let cardImageHeight = document.querySelectorAll('.card img')[0].offsetHeight;
+        let scenes = document.querySelectorAll('.scene');
+        let extraHeight = 3;
+        for (let i = 0; i < scenes.length; i++) {
+            let cardScene = scenes[i];
+            cardScene.style.height = cardImageHeight;
+        }
+    }
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    let cards = document.querySelectorAll('.scene > .card');
+        for(let i = 0; i < cards.length; i++){
+            cards[i].addEventListener( 'click', function() {
+                cards[i].classList.toggle('is-flipped');
+            });
+        }
+
+    
+    
+    setHeight();
+
+    
+
+    
 });
-</script> -->
+
+window.addEventListener('resize', setHeight);
+
+</script>

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,22 +12,5 @@
 <?php session_start(); ?>
 <?php include_once('menu.php'); ?>
 
-
-<div class="scene">
-  <div class="card">
-    <div class="card__face card__face--front">front</div>
-    <div class="card__face card__face--back">back</div>
-  </div>
-</div>
-
-
 </body>
 </html>
-
-<script>
-
-var card = document.querySelector('.card');
-card.addEventListener( 'click', function() {
-  card.classList.toggle('is-flipped');
-});
-</script>

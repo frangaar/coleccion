@@ -11,7 +11,7 @@ body{
 }
 
 .navbar-padding{
-    /* padding-top: 0px; */
+    padding-top: 0px;
     padding-bottom: 0px !important;
 }
 
@@ -33,7 +33,7 @@ body{
 }
 
 .btn-positions{
-    padding-bottom: 10px;
+    text-align: right;
 }
 
 .btn-positions button{
@@ -54,23 +54,23 @@ body{
 
 .card-footer .far{
     font-size: 15px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 3px;
 }
 
 .card-body.color-fondo{
-    /* background-color: black; */
-    /* padding-top: 40px; */
+    background-color: #f2eded;
+    padding-top: 0;
     text-align: left;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    padding-bottom: 0;
 }
 
 .card-body tr{
     background-color: #f2eded;
 }
 
+.color-fondo{
+    background-color: black;
+}
 
 .titulo{
     font-size: 14px;
@@ -85,47 +85,15 @@ body{
 
 .card .table-mana{
     padding: 0;
-    text-align: center;
-    margin-bottom: 0;
 }
 
-.card .table-mana td{
-    padding: 0;
-}
-
-/* .card .table-mana .badge{
+.card .table-mana .badge{
     border: 1px solid black;
-} */
-
-.border-footer{
-    border-bottom-left-radius: 25px !important;
-    border-bottom-right-radius: 25px !important;
-    padding-bottom: 0px;
-    /* background-color: black; */
-    position: absolute;
-    right: 0;
-    bottom: -20px;
-    border: none;
-}
-
-.border-footer .fa-text{
-    font-size: 11px;
 }
 
 .badges-title{
     font-weight: 700;
-    font-size: 9px;
-    color: white;
-}
-
-.badges-text{
-    font-size: 9px;
-    font-weight: 700;
-}
-
-.badges-mana{
-    font-size: 8px;
-    font-weight: 700;
+    font-size: 11px;
 }
 
 .num-mana{
@@ -171,13 +139,12 @@ body{
 }
 
 .badges-ataque{
-    font-size: 9px;
     background-color: gold !important;
     color: black !important;
 }
 
 .table-mana td:nth-child(2){
-    /* text-align:right; */
+    text-align:right;
 }
 
 .float-left{
@@ -205,11 +172,58 @@ body{
     display: none;
 } */
 
-.scene {
+
+/* .flip-card {
+    perspective: 1000px;
+  }
+  
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  } */
+
+  .rotate{
+    transform: rotateY(180deg);
+  }
+  
+  
+ /*  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  
+  .flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+  } */
+
+
+
+
+
+
+
+  .scene {
     /* width: 120px;
-    height: 100px; */
-    margin: 40px 0;
-    perspective: 600px;
+    height: 100px;
+    margin: 40px 0; */
+    perspective: 1000px;
     border-radius: 25px;
   }
   
@@ -225,7 +239,7 @@ body{
   }
   
   .card.is-flipped {
-    transform: translateX(-100%) rotateY(-180deg);
+    transform: translateX(-100%) rotateY(180deg);
   }
   
   .card__face {
@@ -233,30 +247,16 @@ body{
     width: 100%;
     height: 100%;
     line-height: 200%;
-    /* color: white; */
-    /* text-align: center;
+    color: white;
+    text-align: center;
     font-weight: bold;
-    font-size: 40px; */
+    font-size: 40px;
     backface-visibility: hidden;
     border-radius: 25px;
   }
   
-  .card__face--front {
-    background: #C1C6C4;
-  }
-  
   .card__face--back {
-    background-size: contain;
-    background-repeat: no-repeat;
+        background-size: contain;
+        background-repeat: no-repeat;
     transform: rotateY(180deg);
-    /* background-image: url(../img/cartaTrasera.png); */
-    background-color: black;
   }
-
-  @media (min-width: 800px) {
-    .badges-title {
-      font-size: 13px;
-    }
-  }
-
-  
