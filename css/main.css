@@ -1,7 +1,9 @@
 body{
-    background-image: url(../img/fondo.png);
+    background-image: url(../img/portada.png);
     height: 100%;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .logo{
@@ -10,8 +12,13 @@ body{
     height: 49px;
 }
 
+#portada{
+    background-image: url("../img/portada.png");
+    width: 124px;
+    height: 49px;
+}
+
 .navbar-padding{
-    /* padding-top: 0px; */
     padding-bottom: 0px !important;
 }
 
@@ -59,8 +66,7 @@ body{
 }
 
 .card-body.color-fondo{
-    /* background-color: black; */
-    /* padding-top: 40px; */
+    padding-top: 0px;
     text-align: left;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -87,15 +93,20 @@ body{
     padding: 0;
     text-align: center;
     margin-bottom: 0;
+    display: none;
 }
 
 .card .table-mana td{
     padding: 0;
 }
 
-/* .card .table-mana .badge{
-    border: 1px solid black;
-} */
+.card .table-mana.view-mana-mobile{
+    display: block;
+}
+
+.view-mana-desktop{
+    display: none;
+}
 
 .border-footer{
     border-bottom-left-radius: 25px !important;
@@ -176,10 +187,6 @@ body{
     color: black !important;
 }
 
-.table-mana td:nth-child(2){
-    /* text-align:right; */
-}
-
 .float-left{
     float: left;
     margin-right: 10px;
@@ -233,10 +240,6 @@ body{
     width: 100%;
     height: 100%;
     line-height: 200%;
-    /* color: white; */
-    /* text-align: center;
-    font-weight: bold;
-    font-size: 40px; */
     backface-visibility: hidden;
     border-radius: 25px;
   }
@@ -256,6 +259,22 @@ body{
   @media (min-width: 800px) {
     .badges-title {
       font-size: 13px;
+    }
+    
+    .card .table-mana {
+        display: inline-table;
+    }
+
+    .card .table-mana td{
+        text-align: left;
+    }
+
+    .card .table-mana.view-mana-mobile{
+        display: none;
+    }
+
+    .view-mana-desktop .badges-mana{
+        text-align: left;
     }
   }
 

@@ -7,6 +7,7 @@
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="css/fontawesome/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 
 </head>
 <body>
@@ -99,10 +100,19 @@
                         <label class="col-12 col-sm-12 col-form-label badges-title">Tipos de maná:</label><br> 
                         <table class="table table-bordered table-mana">
                             <tbody>
+                                <?php foreach ($selectMana as $value) {?>
+                                    <tr>
+                                        <td class=" <?php echo strtolower($value['nombre']) ?>"><span class="badge text-bg-success badges-text <?php echo strtolower($value['nombre']) ?>"><?php echo $value['nombre'] ?></span></td>
+                                        <td class=" <?php echo strtolower($value['nombre']) ?>"><span class="badge text-bg-success badges-mana <?php echo strtolower($value['nombre']) ?>"><?php echo $value['cantidadMana'] ?></span></td>
+                                    </tr>
+                                <?php } ?>     
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-mana view-mana-mobile">
+                            <tbody>
                                 <tr>
                                 <?php foreach ($selectMana as $value) {?>
-                                        <!-- <td><span class="badge text-bg-success badges-text <?php echo strtolower($value['nombre']) ?>"><?php echo $value['nombre'] ?></span></td> -->
-                                        <td><span class="badge text-bg-success badges-mana <?php echo strtolower($value['nombre']) ?>"><?php echo $value['cantidadMana'] ?></span></td>
+                                        <td class=" <?php echo strtolower($value['nombre']) ?>"><span class="badge text-bg-success badges-mana <?php echo strtolower($value['nombre']) ?>"><?php echo $value['cantidadMana'] ?></span></td>
                                 <?php } ?>     
                                 </tr>
                             </tbody>
@@ -144,36 +154,3 @@
 </body>
 </html>
 
-<script>
-
-    let cardImageHeight = document.querySelectorAll('.card img')[0].offsetHeight;
-    function setHeight(){
-        let cardImageHeight = document.querySelectorAll('.card img')[0].offsetHeight;
-        let scenes = document.querySelectorAll('.scene');
-        let extraHeight = 3;
-        for (let i = 0; i < scenes.length; i++) {
-            let cardScene = scenes[i];
-            cardScene.style.height = cardImageHeight;
-        }
-    }
-
-document.addEventListener("DOMContentLoaded", (event) => {
-    let cards = document.querySelectorAll('.scene > .card');
-        for(let i = 0; i < cards.length; i++){
-            cards[i].addEventListener( 'click', function() {
-                cards[i].classList.toggle('is-flipped');
-            });
-        }
-
-    
-    
-    setHeight();
-
-    
-
-    
-});
-
-window.addEventListener('resize', setHeight);
-
-</script>
