@@ -32,7 +32,7 @@
 <div class="container mt-3">
     <div class="card margin-top-mobile-cards">
         <div class="card-body">
-            <h5 class="card-title">Formulario de modificación de la carta</h5>
+            <h5 class="card-title">Formulario de creacion de la carta</h5>
             <form action="controller.php" method="post" enctype="multipart/form-data">
             <div class="mb-3 row">
                 <label for="nombreCarta" class="col-sm-3 col-form-label">Nombre de la carta:</label>
@@ -40,13 +40,13 @@
                     <input class="form-control" type="text" name="nombreCarta" id="nombreCarta" aria-label="input example">
                 </div>
             </div>
-            <div class="mb-3 float-left">
+            <div class="mb-3">
                     <label for="formFile" class="form-label">Imagen</label>
                     <input class="form-control" type="file" id="formFile" name="imgCarta" required>
                 </div>
-                <!-- <div class="mb-3">
+                <div class="mb-3">
                     <img  class="img-thumbnail create" id="img-preview">
-                </div> -->
+                </div>
             <div class="mb-3 row clear">
                 <label for="descCarta" class="col-sm-3 col-form-label">Descripción de la carta:</label>
                 <div class="sm-8">

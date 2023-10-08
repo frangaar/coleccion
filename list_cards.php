@@ -81,7 +81,7 @@
         ?>
 
         <div class="scene">
-            <div class="card">
+            <div class="card cards-list">
                 <div class="card__face card__face--front">
                     <img src="<?php echo $card['imagen'] ?>" class="card-img-top">
                 </div>
