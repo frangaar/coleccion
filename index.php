@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +11,6 @@
 <body>
 <?php session_start(); ?>
 <?php include_once('menu.php'); ?>
-
 
 </body>
 </html>

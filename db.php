@@ -165,9 +165,9 @@ function actualizarCarta($conn){
 
   $updateCardSql = "UPDATE cartas set nombre='".$nombre."'";
 
-  if(!empty($descripcion)){
+  //if(!empty($descripcion)){
       $updateCardSql = $updateCardSql.",descripcion='".$descripcion."'";
-  }
+  //}
 
   $updateCardSql = $updateCardSql.",idExpansion=".$expansion;
   $updateCardSql = $updateCardSql.",ataque=".$ataque;
