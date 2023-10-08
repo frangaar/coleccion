@@ -256,7 +256,11 @@ body{
     background-color: black;
   }
 
-  @media (min-width: 800px) {
+  .btn-cancel{
+    width: 100%;
+  }
+
+  @media (min-width: 767px) {
     .badges-title {
       font-size: 13px;
     }
@@ -275,6 +279,10 @@ body{
 
     .view-mana-desktop .badges-mana{
         text-align: left;
+    }
+
+    .btn-cancel{
+        width: auto;
     }
   }
 

@@ -133,7 +133,7 @@
                 </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a class="btn-cancel" href="list_cards.php"><button type="button" class="btn btn-secondary justify-content-md-end" name="cancelar">Cancelar</button></a>
+                <a class="btn-cancel" href="list_cards.php"><button type="button" class="btn btn-secondary justify-content-md-end btn-cancel" name="cancelar">Cancelar</button></a>
                 <button type="submit" class="btn btn-primary justify-content-md-end" name="guardar">Guardar</button>
             </div>
       </form>
