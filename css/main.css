@@ -260,11 +260,7 @@ body{
     width: 100%;
   }
 
-  @media (min-width: 767px) {
-    .badges-title {
-      font-size: 13px;
-    }
-    
+  @media (min-width: 767px) {    
     .card .table-mana {
         display: inline-table;
     }
@@ -286,4 +282,12 @@ body{
     }
   }
 
-  
+  @media (min-width: 1420px) {
+    .badges-title {
+      font-size: 13px;
+    }
+
+    .badges-text,.badges-mana,.badges-ataque {
+        font-size: 11px;
+    }
+  }

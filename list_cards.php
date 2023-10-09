@@ -50,7 +50,7 @@
     ?>
 
     <div class="container-fluid mt-3">
-        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 g-4 margin-top-cards">
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5 g-4 margin-top-cards">
         <?php
         foreach ($cardsList as $card) {
 
