@@ -44,9 +44,6 @@
                     <label for="formFile" class="form-label">Imagen</label>
                     <input class="form-control" type="file" id="formFile" name="imgCarta" required>
                 </div>
-                <div class="mb-3">
-                    <img  class="img-thumbnail create" id="img-preview">
-                </div>
             <div class="mb-3 row clear">
                 <label for="descCarta" class="col-sm-3 col-form-label">Descripción de la carta:</label>
                 <div class="sm-8">
