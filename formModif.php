@@ -35,42 +35,48 @@
 
     $conn=openDB();
 
-    $espansionListSql = "select id,nombreExpansion from expansiones";
-    $expansionList = $conn->prepare($espansionListSql);
-    $expansionList->execute();
+    try{
 
-    $expansionList = $expansionList->fetchAll();
+        $espansionListSql = "select id,nombreExpansion from expansiones";
+        $expansionList = $conn->prepare($espansionListSql);
+        $expansionList->execute();
 
-    $espansionSelectedSql = "select idExpansion from cartas where id=".$cardData['id'];
-    $espansionSelected = $conn->prepare($espansionSelectedSql);
-    $espansionSelected->execute();
+        $expansionList = $expansionList->fetchAll();
 
-    $espansionSelected = $espansionSelected->fetch();
+        $espansionSelectedSql = "select idExpansion from cartas where id=".$cardData['id'];
+        $espansionSelected = $conn->prepare($espansionSelectedSql);
+        $espansionSelected->execute();
 
-    $listaTipoManaSql = "select * from tipo_mana order by id asc";            
-    $listaTipoMana = $conn->prepare($listaTipoManaSql);
-    $listaTipoMana->execute();
+        $espansionSelected = $espansionSelected->fetch();
 
-    $listaTipoManaInfo = $listaTipoMana->fetchAll();
+        $listaTipoManaSql = "select * from tipo_mana order by id asc";            
+        $listaTipoMana = $conn->prepare($listaTipoManaSql);
+        $listaTipoMana->execute();
 
-    $listaTipoManaDatosSql = "select idTipoMana,cantidadMana from cartas_tipomana where idCarta=".$cardData['id'];
-    $listaTipoManaDatos = $conn->prepare($listaTipoManaDatosSql);
-    $listaTipoManaDatos->execute();
+        $listaTipoManaInfo = $listaTipoMana->fetchAll();
 
-    $listaTipoManaDatosRellenar = $listaTipoManaDatos->fetchAll();
+        $listaTipoManaDatosSql = "select idTipoMana,cantidadMana from cartas_tipomana where idCarta=".$cardData['id'];
+        $listaTipoManaDatos = $conn->prepare($listaTipoManaDatosSql);
+        $listaTipoManaDatos->execute();
 
-    
-    $tiposCartaListSql = "select id,nombre from tipo_carta order by id";
-    $tiposCartaList = $conn->prepare($tiposCartaListSql);
-    $tiposCartaList->execute();
+        $listaTipoManaDatosRellenar = $listaTipoManaDatos->fetchAll();
 
-    $tiposCartaList = $tiposCartaList->fetchAll();
+        
+        $tiposCartaListSql = "select id,nombre from tipo_carta order by id";
+        $tiposCartaList = $conn->prepare($tiposCartaListSql);
+        $tiposCartaList->execute();
 
-    $tipoCartaSql = "select c.idTipoCarta,tc.nombre,c.ataque,c.defensa,c.imagen from cartas c,tipo_carta tc where c.idTipoCarta=tc.id and c.id=".$cardData['id'];
-    $tipoCarta = $conn->prepare($tipoCartaSql);
-    $tipoCarta->execute();
+        $tiposCartaList = $tiposCartaList->fetchAll();
 
-    $tipoCarta = $tipoCarta->fetch();
+        $tipoCartaSql = "select c.idTipoCarta,tc.nombre,c.ataque,c.defensa,c.imagen from cartas c,tipo_carta tc where c.idTipoCarta=tc.id and c.id=".$cardData['id'];
+        $tipoCarta = $conn->prepare($tipoCartaSql);
+        $tipoCarta->execute();
+
+        $tipoCarta = $tipoCarta->fetch();
+    }
+    catch(PDOException $e){
+        $_SESSION['error'] = $e->errorInfo[1] . ' - ' . $e->errorInfo[2];
+    }
 
 
     $conn=closeDB();

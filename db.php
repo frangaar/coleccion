@@ -26,7 +26,7 @@ function closeDB(){
 
 function crearCarta($conn){
 
-  $guardado = false;
+  
 
   $nombre=$_POST['nombreCarta'];
   $descripcion=$_POST['descCarta'];
@@ -47,6 +47,12 @@ function crearCarta($conn){
   $tipoCarta=$_POST['idTipoCarta'];
   
   $imagen=uploadImages();
+
+
+  try {
+  
+    $conn->beginTransaction();
+  
 
   $insertCardSql = "INSERT INTO cartas VALUES (:id,:nombre,:descripcion,:idExpansion,:ataque,:defensa,:idTipoCarta,:imagen)";
   
@@ -99,25 +105,39 @@ function crearCarta($conn){
     }
   }
 
+  $conn->commit();
+}
+catch (Exception $e) {
+  
+  $_SESSION['error'] = "Error al crear la carta";
+  $conn->rollBack();
+}
+
+if(!isset($_SESSION['error']) == 1){
+    $_SESSION['success'] = "Carta añadida correctamente";
     
+}  
 
-  $guardado = true;
-
-  return $guardado;
 }
 
 function borrarCarta($conn){
 
-  $borrado = false;
+  
 
   $id=$_POST['id'];
-  $deleteSql = "delete from cartas where id=".$id;
-  $delete = $conn->prepare($deleteSql);
-  $delete->execute();
 
-  $borrado = true;
-
-  return $borrado; 
+  try{
+    $deleteSql = "delete from cartas where id=".$id;
+    $delete = $conn->prepare($deleteSql);
+    $delete->execute();
+  }
+  catch(PDOException $e){
+      $_SESSION['error'] = $e->errorInfo[1] . ' - ' . $e->errorInfo[2];
+  }
+  
+  if(!isset($_SESSION['error']) == 1){
+    $_SESSION['success'] = "Carta borrada correctamente";
+} 
 
 }
 
@@ -136,7 +156,7 @@ function modificarCarta($conn){
 
 function actualizarCarta($conn){
 
-  $actualizar=false;
+  
 
   // Actualizar datos carta
   $id=$_POST['id'];
@@ -162,6 +182,9 @@ function actualizarCarta($conn){
       $imagen=uploadImages();
   }
 
+  try {
+  
+    $conn->beginTransaction();
 
   $updateCardSql = "UPDATE cartas set nombre='".$nombre."'";
 
@@ -231,7 +254,20 @@ function actualizarCarta($conn){
     $insertManaTypes->execute($data);
   }  
 
-  return $actualizar;
+  $conn->commit();
+}
+catch (Exception $e) {
+  
+  $_SESSION['error'] = "Error al actualizar la carta";
+  $conn->rollBack();
+}
+
+if(!isset($_SESSION['error']) == 1){
+    $_SESSION['success'] = "Carta actualizada correctamente";
+   
+}  
+
+
 }
 
 ?>

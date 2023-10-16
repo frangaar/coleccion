@@ -20,13 +20,14 @@ $conn=openDB();
 
     if(isset($_POST['guardar'])){
 
-        $guardado=crearCarta($conn);
+        //$guardado=
+        crearCarta($conn);
         
-        if($guardado){
+        /* if($guardado){
             $_SESSION['success'] = "Carta añadida correctamente";
         } else{
             $_SESSION['error'] = "Error al añadir carta";
-        }        
+        } */        
     }
 
     if(isset($_POST['modificar'])){
@@ -37,35 +38,37 @@ $conn=openDB();
 
     if(isset($_POST['borrar'])){
 
-        $borrar=borrarCarta($conn);
+        //$borrar=
+        borrarCarta($conn);
         
-        if($borrar){
+        /* if($borrar){
             $_SESSION['success'] = "Carta borrada correctamente";
         }else{
             $_SESSION['error'] = "Error al borrar carta";
-        }
+        } */
 
     }
 
     
     if(isset($_POST['actualizar'])){
 
-        $actualizar=actualizarCarta($conn);
+        //$actualizar=
+        actualizarCarta($conn);
 
-        if($actualizar){
+        /* if($actualizar){
             $_SESSION['success'] = "Carta actualizada correctamente";
         }else{
             $_SESSION['error'] = "Error al actualizar carta";
-        }
+        } */
 
     }
 
     $conn = closeDB();
 
 
-    if(isset($_SESSION['success']) == 1){
+    //if(isset($_SESSION['success']) == 1){
         header("Location: list_cards.php");
-    }
+    //}
 
 ?>
 
