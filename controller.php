@@ -16,7 +16,7 @@ require_once('funciones.php');
 include_once('db.php');
 
 $conn=openDB();
-
+ 
 
     if(isset($_POST['guardar'])){
 
