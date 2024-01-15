@@ -28,8 +28,8 @@ function crearCarta($conn){
 
   
 
-  $nombre=$_POST['nombreCarta'];
-  $descripcion=$_POST['descCarta'];
+  $nombre="";
+  $descripcion="";
   $idExpansion=$_POST['idExpansion'];
   
   if($_POST['ataque'] == "" || !is_numeric($_POST['ataque'])){
