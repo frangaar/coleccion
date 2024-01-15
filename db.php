@@ -54,13 +54,11 @@ function crearCarta($conn){
     $conn->beginTransaction();
   
 
-  $insertCardSql = "INSERT INTO cartas VALUES (:id,:nombre,:descripcion,:idExpansion,:ataque,:defensa,:idTipoCarta,:imagen)";
+  $insertCardSql = "INSERT INTO cartas VALUES (:id,:idExpansion,:ataque,:defensa,:idTipoCarta,:imagen)";
   
   $insertCard = $conn->prepare($insertCardSql);
   $null = null;
   $insertCard->bindParam(':id',$null);
-  $insertCard->bindParam(':nombre',$nombre);
-  $insertCard->bindParam(':descripcion',$descripcion);
   $insertCard->bindParam(':idExpansion',$idExpansion);
   $insertCard->bindParam(':ataque',$ataque);
   $insertCard->bindParam(':defensa',$defensa);
@@ -69,11 +67,12 @@ function crearCarta($conn){
   $insertCard->execute();
 
   // Obtener id nueva carta creada
-  $selectSql = "select MAX(id) as id from cartas";
-  $selectAll = $conn->prepare($selectSql);
-  $selectAll->execute();
+  $idCarta = $conn->lastInsertId();
+  // $selectSql = "select MAX(id) as id from cartas";
+  // $selectAll = $conn->prepare($selectSql);
+  // $selectAll->execute();
 
-  $idCarta = $selectAll->fetch();
+  // $idCarta = $selectAll->fetch();
 
   $manaList=array();
 
@@ -100,7 +99,7 @@ function crearCarta($conn){
     $data = [];
 
     foreach ($manaList as $key => $value) {
-      $data = ['idCarta'=>$idCarta['id'],'idTipoMana'=>$key,'cantidadMana'=>$value];
+      $data = ['idCarta'=>$idCarta,'idTipoMana'=>$key,'cantidadMana'=>$value];
       $insertManaTypes->execute($data);
     }
   }
@@ -160,8 +159,6 @@ function actualizarCarta($conn){
 
   // Actualizar datos carta
   $id=$_POST['id'];
-  $nombre=$_POST['nombreCarta'];
-  $descripcion=$_POST['descCarta'];
   $expansion=$_POST['idExpansion'];
 
   if($_POST['ataque'] == "" || !is_numeric($_POST['ataque'])){
@@ -186,13 +183,13 @@ function actualizarCarta($conn){
   
     $conn->beginTransaction();
 
-  $updateCardSql = "UPDATE cartas set nombre='".$nombre."'";
+  $updateCardSql = "UPDATE cartas set ";
 
   //if(!empty($descripcion)){
-      $updateCardSql = $updateCardSql.",descripcion='".$descripcion."'";
+      //$updateCardSql = $updateCardSql.",descripcion='".$descripcion."'";
   //}
 
-  $updateCardSql = $updateCardSql.",idExpansion=".$expansion;
+  $updateCardSql = $updateCardSql."idExpansion=".$expansion;
   $updateCardSql = $updateCardSql.",ataque=".$ataque;
   $updateCardSql = $updateCardSql.",defensa=".$defensa;
   $updateCardSql = $updateCardSql.",idTipoCarta=".$tipoCarta;

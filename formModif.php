@@ -89,10 +89,6 @@
             <form action="controller.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3 row">
                     <input type="hidden" name="id" value="<?php echo $cardData['id'] ?>">
-                    <label for="nombreCarta" class="col-sm-3 col-form-label">Nombre de la carta:</label>
-                    <div class="col-sm-12">
-                        <input class="form-control" type="text" name="nombreCarta" id="nombreCarta" value="<?php echo $cardData['nombre'] ?>" aria-label="input example">
-                    </div>
                 </div>
                 <div class="mb-3 float-left">
                     <label for="formFile" class="form-label">Imagen</label>
@@ -106,14 +102,7 @@
                 </div>
                 <div class="mb-3">
                     <img src="<?php echo $tipoCarta['imagen'] ?>" class="img-thumbnail" id="img-preview">
-                </div>
-                <div class="mb-3 row">
-                    <label for="descCarta" class="col-sm-3 col-form-label">Descripción de la carta:</label>
-                    <div class="sm-8">
-                        <textarea class="form-control" name="descCarta" id="descCarta" value="" rows="3"><?php echo $cardData['descripcion'] ?></textarea>
-                    </div>
-                </div>
-                
+                </div>                
 
                 <div class="mb-3 row">
                     <label class="col-sm-3 col-form-label">Expansion:</label>

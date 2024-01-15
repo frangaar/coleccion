@@ -54,7 +54,7 @@
         <?php
         foreach ($cardsList as $card) {
 
-            $selectExpansionSql = "select c.nombre,c.descripcion,e.nombreExpansion,c.ataque,c.defensa from cartas c, expansiones e where c.idExpansion=e.id and c.id=".$card['id'];
+            $selectExpansionSql = "select e.nombreExpansion,c.ataque,c.defensa from cartas c, expansiones e where c.idExpansion=e.id and c.id=".$card['id'];
             $selectExpansion = $conn->prepare($selectExpansionSql);
             $selectExpansion->execute();
             

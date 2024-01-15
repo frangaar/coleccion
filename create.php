@@ -34,22 +34,10 @@
         <div class="card-body">
             <h5 class="card-title">Formulario de creacion de la carta</h5>
             <form action="controller.php" method="post" enctype="multipart/form-data">
-            <div class="mb-3 row">
-                <label for="nombreCarta" class="col-sm-3 col-form-label">Nombre de la carta:</label>
-                <div class="col-sm-12">
-                    <input class="form-control" type="text" name="nombreCarta" id="nombreCarta" aria-label="input example">
-                </div>
-            </div>
             <div class="mb-3">
                     <label for="formFile" class="form-label">Imagen</label>
                     <input class="form-control" type="file" id="formFile" name="imgCarta" required>
                 </div>
-            <div class="mb-3 row clear">
-                <label for="descCarta" class="col-sm-3 col-form-label">Descripción de la carta:</label>
-                <div class="sm-8">
-                    <textarea class="form-control" name="descCarta" id="descCarta" value="<?php isset($card['descripcion']) ? $card['descripcion'] : "" ?>" rows="3"></textarea>
-                </div>
-            </div>
             
             <?php
 
